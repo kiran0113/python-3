@@ -37,4 +37,5 @@ jobs:
           key: ${{ secrets.DROPLET_SSH_KEY }}
           script: |
             docker pull kiranyn/myrepo4:${{ github.sha }}
+            docker stop myrepo4 || true && docker rm myrepo4 || true
             docker run -d --name myrepo4 -p 5000:5000 kiranyn/myrepo4:${{ github.sha }}

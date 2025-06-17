@@ -36,6 +36,6 @@ jobs:
           username: ${{ secrets.DROPLET_USER }}
           key: ${{ secrets.DROPLET_SSH_KEY }}
           script: |
-            docker pull kiranyn/demo1:latest
+            docker pull kiranyn/devops:latest
             docker stop demo1 || true && docker rm demo1 || true
-            docker run -d --name demo1 -p 5000:5000 kiranyn/devops:${{ github.sha }}
+            docker run -d --name devops -p 5000:5000 kiranyn/devops:${{ github.sha }}
